@@ -37,5 +37,6 @@ def test_token_endpoint_returns_200():
 
 def test_token_endpoint_returns_correct_body():
     response = requests.post(url, headers={'Content-Type': 'application/x-www-form-urlencoded'}, data=data)
-    body = response.json()
+    if response.status_code == 200:
+        body = response.json()
     assert check(resp_schema, body)
