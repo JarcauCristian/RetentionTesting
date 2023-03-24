@@ -3,16 +3,16 @@ package com.example.uitesting;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.WebDriverRunner;
+import com.codeborne.selenide.SetValueOptions;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import static com.codeborne.selenide.Condition.*;
+import static com.codeborne.selenide.WebDriverRunner.driver;
 import static com.codeborne.selenide.WebDriverRunner.url;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -28,28 +28,9 @@ public class MainPageTest {
         SelenideLogger.addListener("allure", new AllureSelenide());
     }
 
-    @BeforeEach
-    public void setUp() {
-        open("https://retention-csb-test.biomed.ntua.gr/");
-    }
-
-    @Test
-    public void signInFormWorks() {
-        // mainPage.searchButton.click();
-        $("input[id='username']").setValue("dev");
-        $("input[id='password']").setValue("qwer1234");
-        $("input[id='kc-login']").click();
-
-        sleep(1000);
-        assertEquals("https://retention-csb-test.biomed.ntua.gr/patients-monitoring", url());
-
-    }
-
     @Test
     public void addPatientButtonWorks() {
-        $("input[id='username']").setValue("dev");
-        $("input[id='password']").setValue("qwer1234");
-        $("input[id='kc-login']").click();
+        open("https://retention-csb-test.biomed.ntua.gr/patients-monitoring");
         sleep(1000);
         $("a[id*='toolbar']").click();
         sleep(1000);
@@ -58,24 +39,8 @@ public class MainPageTest {
     }
 
     @Test
-    public void patientsMonitoringLinkWorks() {
-        $("input[id='username']").setValue("dev");
-        $("input[id='password']").setValue("qwer1234");
-        $("input[id='kc-login']").click();
-        sleep(1000);
-
-        $("a[class$='active']").click();
-
-        sleep(1000);
-        assertEquals("https://retention-csb-test.biomed.ntua.gr/patients-monitoring", url());
-
-    }
-
-    @Test
     public void deviceMonitoringLinkWorks() {
-        $("input[id='username']").setValue("dev");
-        $("input[id='password']").setValue("qwer1234");
-        $("input[id='kc-login']").click();
+        open("https://retention-csb-test.biomed.ntua.gr/patients-monitoring");
         sleep(1000);
 
         $("a[routerlink='/notifications']").click();
@@ -87,9 +52,7 @@ public class MainPageTest {
 
     @Test
     public void clinicalStudiesLinkWorks() {
-        $("input[id='username']").setValue("dev");
-        $("input[id='password']").setValue("qwer1234");
-        $("input[id='kc-login']").click();
+        open("https://retention-csb-test.biomed.ntua.gr/patients-monitoring");
         sleep(1000);
 
         $("a[routerlink='/events-record']").click();
@@ -101,9 +64,7 @@ public class MainPageTest {
 
     @Test
     public void modelSelectionLinkWorks() {
-        $("input[id='username']").setValue("dev");
-        $("input[id='password']").setValue("qwer1234");
-        $("input[id='kc-login']").click();
+        open("https://retention-csb-test.biomed.ntua.gr/patients-monitoring");
         sleep(1000);
 
         $("a[routerlink='/model-selection']").click();
@@ -115,9 +76,7 @@ public class MainPageTest {
 
     @Test
     public void searchFieldWorks() {
-        $("input[id='username']").setValue("dev");
-        $("input[id='password']").setValue("qwer1234");
-        $("input[id='kc-login']").click();
+        open("https://retention-csb-test.biomed.ntua.gr/patients-monitoring");
         sleep(1000);
         $("input[id='mat-input-0']").setValue("Accepted");
         sleep(1000);
@@ -133,7 +92,7 @@ public class MainPageTest {
 
     @Test
     public void addPatientFormWorks() {
-        String setDateScript = "arguments[0].value = arguments[1]";
+        open("https://retention-csb-test.biomed.ntua.gr/patients-monitoring");
 
         $("input[id='username']").setValue("dev");
         $("input[id='password']").setValue("qwer1234");
@@ -143,24 +102,38 @@ public class MainPageTest {
         sleep(1000);
         $("input[id='firstName']").setValue("John");
         $("input[id='lastName']").setValue("Harris");
-        SelenideElement inputElement = $("input[type='date']");
-        JavascriptExecutor jsExecutor = (JavascriptExecutor) WebDriverRunner.getWebDriver();
-        jsExecutor.executeScript(setDateScript, inputElement, "02-Jul-2000");
+        $("input[id='date']").setValue(SetValueOptions.withDate(LocalDate.of(2000, 07, 02)));
         $("input[id='address']").setValue("Elden Street 3A");
         $("input[id='zip']").setValue("400303");
         $("#kt_content_container > app-builder > div > div.card-body > div > div > form > div:nth-child(2) > div:nth-child(3) > mat-form-field").click();
-        $("mat-option[id='mat-option-01'] span[class='mat-option-text']").sendKeys(Keys.ENTER);
+        int id = 0;
+        for (int i = 0; i < 20; i++) {
+            if ($("mat-option[id='mat-option-" + String.valueOf(i) + "']").exists()) {
+                id = i;
+                break;
+            }
+        }
+        $("mat-option[id='mat-option-" + String.valueOf(id) + "']").sendKeys(Keys.ENTER);
         $("input[id='telephone']").setValue("0775678970");
         $("input[id='mat-input-7']").setValue("john.harris@gmail.com");
-        inputElement = $("input[type='date']");
-        jsExecutor = (JavascriptExecutor) WebDriverRunner.getWebDriver();
-        jsExecutor.executeScript(setDateScript, inputElement, "23-Mar-2023");
-        $("div[id='mat-select-value-5']").setValue("ccmname1");
+        $("input[id='date1']").setValue(SetValueOptions.withDate(LocalDate.now()));
+        $("#kt_content_container > app-builder > div > div.card-body > div > div > form > mat-form-field").click();
+        id = 0;
+        for (int i = 0; i < 20; i++) {
+            if ($("mat-option[id='mat-option-" + String.valueOf(i) + "']").exists()) {
+                id = i;
+                break;
+            }
+        }
+        $("mat-option[id='mat-option-" + String.valueOf(id) + "']").sendKeys(Keys.ENTER);
         $("input[id='mat-input-9']").setValue("caregiver1@gmail.com");
 
-        $("button[class='btn btn-lg btn-primary me-3']").click();
         sleep(1000);
 
+        $("#kt_content_container > app-builder > div > div.card-footer > div.row > div > div > button.btn.btn-lg.btn-primary").click();
+        sleep(1000);
+        driver().switchTo().alert().accept();
+        sleep(1000);
         assertEquals("https://retention-csb-test.biomed.ntua.gr/patients-monitoring", url());
     }
 
