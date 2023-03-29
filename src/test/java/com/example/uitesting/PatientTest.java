@@ -10,14 +10,13 @@ import org.junit.jupiter.api.Test;
 import org.openqa.selenium.Keys;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 public class PatientTest {
+
 
     @BeforeAll
     public static void setUpAll() {
@@ -503,6 +502,22 @@ public class PatientTest {
         sleep(4000);
 
         $("#kt_content_container > app-builder > div:nth-child(3) > div.card-header.card-header-stretch.overflow-auto > ul > li:nth-child(2) > a").click();
-        $("mat-radio-button[id='mat-radio-95']").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(1) > div:nth-of-type(1) > section > mat-radio-group > mat-radio-button:nth-of-type(1) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(1) > div:nth-of-type(2) > section > mat-radio-group > mat-radio-button:nth-of-type(1) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(1) > div:nth-of-type(3) > section > mat-radio-group > mat-radio-button:nth-of-type(1) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(2) > div:nth-of-type(1) > section > mat-radio-group > mat-radio-button:nth-of-type(1) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(2) > div:nth-of-type(2) > section > mat-radio-group > mat-radio-button:nth-of-type(1) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(2) > div:nth-of-type(3) > section > mat-radio-group > mat-radio-button:nth-of-type(1) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
+        $("input[data-placeholder='0-150']").setValue("140");
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(3) > div:nth-of-type(2) > section > mat-radio-group > mat-radio-button:nth-of-type(1) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(3) > div:nth-of-type(3) > section > mat-radio-group > mat-radio-button:nth-of-type(1) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(4) > div:nth-of-type(1) > section > mat-radio-group > mat-radio-button:nth-of-type(1) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(4) > div:nth-of-type(2) > section > mat-radio-group > mat-radio-button:nth-of-type(1) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(4) > div:nth-of-type(2) > section > mat-radio-group > mat-radio-button:nth-of-type(1) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(4) > div:nth-of-type(3) > section > mat-radio-group > mat-radio-button:nth-of-type(1) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(5) > div:nth-of-type(2) > section > mat-radio-group > mat-radio-button:nth-of-type(1) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(6) > div:nth-of-type(1) > section > mat-radio-group > mat-radio-button:nth-of-type(1) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(5) > div:nth-of-type(3) > mat-form-field > div > div:nth-of-type(1) > div").click();
+        $("html > body > div:nth-of-type(3) > div:nth-of-type(2) > div > div > div > mat-option:nth-of-type(1)").sendKeys(Keys.SPACE);
     }
 }
