@@ -7,6 +7,7 @@ import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.Keys;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,9 +30,6 @@ public class PatientTest {
     public void viewPatientButtonWorks() {
         ArrayList<String> errors = new ArrayList<>();
         open("https://retention-csb-test.biomed.ntua.gr/");
-        $("input[id='username']").setValue("dev");
-        $("input[id='password']").setValue("qwer1234");
-        $("input[id='kc-login']").click();
         sleep(1000);
         for (int i = 1; i <= 10; i++) {
             String id = $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div > mat-table > mat-row:nth-of-type(" + i + ") > mat-cell:nth-of-type(1)").getText();
@@ -53,9 +51,6 @@ public class PatientTest {
     public void patientBasicInformationWorks() {
         ArrayList<String> errors = new ArrayList<>();
         open("https://retention-csb-test.biomed.ntua.gr/builder;patientId=67");
-        $("input[id='username']").setValue("dev");
-        $("input[id='password']").setValue("qwer1234");
-        $("input[id='kc-login']").click();
         sleep(4000);
 
         String text = "ID: 67\n" +
@@ -80,9 +75,6 @@ public class PatientTest {
     @Test
     public void basicPatientInfoButtonWorks() {
         open("https://retention-csb-test.biomed.ntua.gr/builder;patientId=67");
-        $("input[id='username']").setValue("dev");
-        $("input[id='password']").setValue("qwer1234");
-        $("input[id='kc-login']").click();
         sleep(4000);
 
         $("button[id='basic']").click();
@@ -105,9 +97,6 @@ public class PatientTest {
     @Test
     public void patientMonitoringButtonWorks() {
         open("https://retention-csb-test.biomed.ntua.gr/builder;patientId=67");
-        $("input[id='username']").setValue("dev");
-        $("input[id='password']").setValue("qwer1234");
-        $("input[id='kc-login']").click();
         sleep(4000);
 
         $("button[id='monitoring']").click();
@@ -130,9 +119,6 @@ public class PatientTest {
     @Test
     public void notificationsButtonWorks() {
         open("https://retention-csb-test.biomed.ntua.gr/builder;patientId=67");
-        $("input[id='username']").setValue("dev");
-        $("input[id='password']").setValue("qwer1234");
-        $("input[id='kc-login']").click();
         sleep(4000);
 
         $("button[id='Notification']").click();
@@ -150,5 +136,373 @@ public class PatientTest {
         }
 
         assertEquals(0, error_counter);
+    }
+
+    @Test
+    public void patientDataButtonWorks() {
+        open("https://retention-csb-test.biomed.ntua.gr/builder;patientId=67");
+        sleep(4000);
+
+        $("#kt_content_container > app-builder > div:nth-child(3) > div.card-header.card-header-stretch.overflow-auto > ul > li:nth-child(1) > a").click();
+
+        assertEquals("tab-pane active", $("#kt_content_container > app-builder > div:nth-child(3) > div.card-body > div > div:nth-child(1)").getAttribute("class"));
+    }
+
+    @Test
+    public void baselineButtonWorks() {
+        open("https://retention-csb-test.biomed.ntua.gr/builder;patientId=67");
+        sleep(4000);
+
+        $("#kt_content_container > app-builder > div:nth-child(3) > div.card-header.card-header-stretch.overflow-auto > ul > li:nth-child(2) > a").click();
+
+        assertEquals("tab-pane active", $("#kt_content_container > app-builder > div:nth-child(3) > div.card-body > div > div:nth-child(2)").getAttribute("class"));
+    }
+
+    @Test
+    public void devicesButtonWorks() {
+        open("https://retention-csb-test.biomed.ntua.gr/builder;patientId=67");
+        sleep(4000);
+
+        $("#kt_content_container > app-builder > div:nth-child(3) > div.card-header.card-header-stretch.overflow-auto > ul > li:nth-child(3) > a").click();
+
+        assertEquals("tab-pane active", $("#kt_content_container > app-builder > div:nth-child(3) > div.card-body > div > div:nth-child(4)").getAttribute("class"));
+    }
+
+    @Test
+    public void overviewButtonWorks() {
+        open("https://retention-csb-test.biomed.ntua.gr/builder;patientId=67");
+        sleep(4000);
+
+        $("button[id='monitoring']").click();
+
+        $("#kt_content_container > app-builder > div:nth-child(3) > div.card-header.card-header-stretch.overflow-auto > ul > li:nth-child(1) > a").click();
+
+        assertEquals("tab-pane active", $("#kt_content_container > app-builder > div:nth-child(3) > div.card-body > div > div:nth-child(5)").getAttribute("class"));
+    }
+
+    @Test
+    public void visitsButtonWorks() {
+        open("https://retention-csb-test.biomed.ntua.gr/builder;patientId=67");
+        sleep(4000);
+
+        $("button[id='monitoring']").click();
+
+        $("#kt_content_container > app-builder > div:nth-child(3) > div.card-header.card-header-stretch.overflow-auto > ul > li:nth-child(2) > a").click();
+
+        assertEquals("tab-pane active", $("#kt_content_container > app-builder > div:nth-child(3) > div.card-body > div > div:nth-child(6)").getAttribute("class"));
+    }
+
+    @Test
+    public void medicationButtonWorks() {
+        open("https://retention-csb-test.biomed.ntua.gr/builder;patientId=67");
+        sleep(4000);
+
+        $("button[id='monitoring']").click();
+
+        $("#kt_content_container > app-builder > div:nth-child(3) > div.card-header.card-header-stretch.overflow-auto > ul > li:nth-child(3) > a").click();
+
+        assertEquals("tab-pane active", $("#kt_content_container > app-builder > div:nth-child(3) > div.card-body > div > div:nth-child(23)").getAttribute("class"));
+    }
+
+    @Test
+    public void personalizedAnalyticsButtonWorks() {
+        open("https://retention-csb-test.biomed.ntua.gr/builder;patientId=67");
+        sleep(4000);
+
+        $("button[id='monitoring']").click();
+
+        $("#kt_content_container > app-builder > div:nth-child(3) > div.card-header.card-header-stretch.overflow-auto > ul > li:nth-child(4) > a").click();
+
+        assertEquals("tab-pane active", $("#kt_content_container > app-builder > div:nth-child(3) > div.card-body > div > div:nth-child(27)").getAttribute("class"));
+    }
+
+    @Test
+    public void imagesButtonWorks() {
+        open("https://retention-csb-test.biomed.ntua.gr/builder;patientId=67");
+        sleep(4000);
+
+        $("button[id='monitoring']").click();
+
+        $("#kt_content_container > app-builder > div:nth-child(3) > div.card-header.card-header-stretch.overflow-auto > ul > li:nth-child(5) > a").click();
+
+        assertEquals("tab-pane active", $("#kt_content_container > app-builder > div:nth-child(3) > div.card-body > div > div:nth-child(28)").getAttribute("class"));
+    }
+
+    @Test
+    public void clinicalDataButtonWorks() {
+        open("https://retention-csb-test.biomed.ntua.gr/builder;patientId=67");
+        sleep(4000);
+
+        $("button[id='monitoring']").click();
+
+        $("#kt_content_container > app-builder > div:nth-child(3) > div.card-header.card-header-stretch.overflow-auto > ul > li:nth-child(6) > a").click();
+
+        assertEquals("tab-pane active", $("#kt_content_container > app-builder > div:nth-child(3) > div.card-body > div > div:nth-child(24)").getAttribute("class"));
+    }
+
+    @Test
+    public void ecgButtonWorks() {
+        open("https://retention-csb-test.biomed.ntua.gr/builder;patientId=67");
+        sleep(4000);
+
+        $("button[id='monitoring']").click();
+
+        $("#kt_content_container > app-builder > div:nth-child(3) > div.card-header.card-header-stretch.overflow-auto > ul > li:nth-child(7) > a").click();
+
+        assertEquals("tab-pane active", $("#kt_content_container > app-builder > div:nth-child(3) > div.card-body > div > div:nth-child(25)").getAttribute("class"));
+    }
+
+    @Test
+    public void labsButtonWorks() {
+        open("https://retention-csb-test.biomed.ntua.gr/builder;patientId=67");
+        sleep(4000);
+
+        $("button[id='monitoring']").click();
+
+        $("#kt_content_container > app-builder > div:nth-child(3) > div.card-header.card-header-stretch.overflow-auto > ul > li:nth-child(8) > a").click();
+
+        assertEquals("tab-pane active", $("#kt_content_container > app-builder > div:nth-child(3) > div.card-body > div > div:nth-child(8)").getAttribute("class"));
+    }
+
+    @Test
+    public void echocardiographyButtonWorks() {
+        open("https://retention-csb-test.biomed.ntua.gr/builder;patientId=67");
+        sleep(4000);
+
+        $("button[id='monitoring']").click();
+
+        $("#kt_content_container > app-builder > div:nth-child(3) > div.card-header.card-header-stretch.overflow-auto > ul > li:nth-child(9) > a").click();
+
+        assertEquals("tab-pane active", $("#kt_content_container > app-builder > div:nth-child(3) > div.card-body > div > div:nth-child(26)").getAttribute("class"));
+    }
+
+    @Test
+    public void mwtButtonWorks() {
+        open("https://retention-csb-test.biomed.ntua.gr/builder;patientId=67");
+        $("input[id='username']").setValue("dev");
+        $("input[id='password']").setValue("qwer1234");
+        $("input[id='kc-login']").click();
+        sleep(4000);
+
+        $("button[id='monitoring']").click();
+
+        $("#kt_content_container > app-builder > div:nth-child(3) > div.card-header.card-header-stretch.overflow-auto > ul > li:nth-child(10) > a").click();
+
+        assertEquals("tab-pane active", $("#kt_content_container > app-builder > div:nth-child(3) > div.card-body > div > div:nth-child(22)").getAttribute("class"));
+    }
+
+    @Test
+    public void vadButtonWorks() {
+        open("https://retention-csb-test.biomed.ntua.gr/builder;patientId=67");
+        sleep(4000);
+
+        $("button[id='monitoring']").click();
+
+        $("#kt_content_container > app-builder > div:nth-child(3) > div.card-header.card-header-stretch.overflow-auto > ul > li:nth-child(11) > a").click();
+
+        assertEquals("tab-pane active", $("#kt_content_container > app-builder > div:nth-child(3) > div.card-body > div > div:nth-child(9)").getAttribute("class"));
+    }
+
+    @Test
+    public void cardioPulmonaryButtonWorks() {
+        open("https://retention-csb-test.biomed.ntua.gr/builder;patientId=67");
+        sleep(4000);
+
+        $("button[id='monitoring']").click();
+
+        $("#kt_content_container > app-builder > div:nth-child(3) > div.card-header.card-header-stretch.overflow-auto > ul > li:nth-child(12) > a").click();
+
+        assertEquals("tab-pane active", $("#kt_content_container > app-builder > div:nth-child(3) > div.card-body > div > div:nth-child(21)").getAttribute("class"));
+    }
+
+    @Test
+    public void careGiverButtonWorks() {
+        open("https://retention-csb-test.biomed.ntua.gr/builder;patientId=67");
+        sleep(4000);
+
+        $("button[id='monitoring']").click();
+
+        $("#kt_content_container > app-builder > div:nth-child(3) > div.card-header.card-header-stretch.overflow-auto > ul > li:nth-child(13) > a").click();
+
+        assertEquals("tab-pane active", $("#kt_content_container > app-builder > div:nth-child(3) > div.card-body > div > div:nth-child(10)").getAttribute("class"));
+    }
+
+    @Test
+    public void rwdSensorsButtonWorks() {
+        open("https://retention-csb-test.biomed.ntua.gr/builder;patientId=67");
+        sleep(4000);
+
+        $("button[id='monitoring']").click();
+
+        $("#kt_content_container > app-builder > div:nth-child(3) > div.card-header.card-header-stretch.overflow-auto > ul > li:nth-child(14) > a").click();
+
+        assertEquals("tab-pane active", $("#kt_content_container > app-builder > div:nth-child(3) > div.card-body > div > div:nth-child(11)").getAttribute("class"));
+    }
+
+    @Test
+    public void otherDataButtonWorks() {
+        open("https://retention-csb-test.biomed.ntua.gr/builder;patientId=67");
+        sleep(4000);
+
+        $("button[id='monitoring']").click();
+
+        $("#kt_content_container > app-builder > div:nth-child(3) > div.card-header.card-header-stretch.overflow-auto > ul > li:nth-child(15) > a").click();
+
+        assertEquals("tab-pane active", $("#kt_content_container > app-builder > div:nth-child(3) > div.card-body > div > div:nth-child(12)").getAttribute("class"));
+    }
+
+    @Test
+    public void eventsButtonWorks() {
+        open("https://retention-csb-test.biomed.ntua.gr/builder;patientId=67");
+        sleep(4000);
+
+        $("button[id='monitoring']").click();
+
+        $("#kt_content_container > app-builder > div:nth-child(3) > div.card-header.card-header-stretch.overflow-auto > ul > li:nth-child(16) > a").click();
+
+        assertEquals("tab-pane active", $("#kt_content_container > app-builder > div:nth-child(3) > div.card-body > div > div:nth-child(13)").getAttribute("class"));
+    }
+
+    @Test
+    public void specialEventsButtonWorks() {
+        open("https://retention-csb-test.biomed.ntua.gr/builder;patientId=67");
+        sleep(4000);
+
+        $("button[id='monitoring']").click();
+
+        $("#kt_content_container > app-builder > div:nth-child(3) > div.card-header.card-header-stretch.overflow-auto > ul > li:nth-child(17) > a").click();
+
+        assertEquals("tab-pane active", $("#kt_content_container > app-builder > div:nth-child(3) > div.card-body > div > div:nth-child(14)").getAttribute("class"));
+    }
+
+    @Test
+    public void symptomsQuestionnaireButtonWorks() {
+        open("https://retention-csb-test.biomed.ntua.gr/builder;patientId=67");
+        sleep(4000);
+
+        $("button[id='monitoring']").click();
+
+        $("#kt_content_container > app-builder > div:nth-child(3) > div.card-header.card-header-stretch.overflow-auto > ul > li:nth-child(18) > a").click();
+
+        assertEquals("tab-pane active", $("#kt_content_container > app-builder > div:nth-child(3) > div.card-body > div > div:nth-child(15)").getAttribute("class"));
+    }
+
+    @Test
+    public void uestionnaireButtonWorks() {
+        open("https://retention-csb-test.biomed.ntua.gr/builder;patientId=67");
+        sleep(4000);
+
+        $("button[id='monitoring']").click();
+
+        $("#kt_content_container > app-builder > div:nth-child(3) > div.card-header.card-header-stretch.overflow-auto > ul > li:nth-child(19) > a").click();
+
+        assertEquals("tab-pane active", $("#kt_content_container > app-builder > div:nth-child(3) > div.card-body > div > div:nth-child(7)").getAttribute("class"));
+    }
+
+    @Test
+    public void patientDataWorks() {
+        open("https://retention-csb-test.biomed.ntua.gr/builder;patientId=67");
+        sleep(4000);
+        $("#kt_content_container > app-builder > div:nth-child(3) > div.card-header.card-header-stretch.overflow-auto > ul > li:nth-child(1) > a").click();
+
+        int counter = 0;
+
+        ElementsCollection elements = $$("#kt_content_container > app-builder > div:nth-child(3) > div.card-body > div > div.tab-pane.active > form");
+
+        for (SelenideElement element : elements)
+        {
+            String text = "Edit\n" +
+                    "Name:\n" +
+                    "DM-LVAD-RPMUC-01\n" +
+                    "Sex:\n" +
+                    "Male\n" +
+                    "Ethnicity:\n" +
+                    "European\n" +
+                    "Country of residence:\n" +
+                    "Germany\n" +
+                    "Date of Birth:\n" +
+                    "Oct 11, 1955\n" +
+                    "Marital Status:\n" +
+                    "living with a partner/spouse\n" +
+                    "Email:\n" +
+                    "string\n" +
+                    "Home Address:\n" +
+                    "string\n" +
+                    "Zip number:\n" +
+                    "string\n" +
+                    "Phone number:\n" +
+                    "string\n" +
+                    "Consent Date:\n" +
+                    "Mar 20, 2023\n" +
+                    "Recruitment status:\n" +
+                    "Accepted\n" +
+                    "Height (cm):\n" +
+                    "Employment Status:\n" +
+                    "ABO Blood group:\n" +
+                    "Highest Level of Education:";
+            if (!text.equals(element.getText()))
+            {
+                counter++;
+            }
+        }
+        assertEquals(0, counter);
+    }
+
+    @Test
+    public void patientEditButtonWorks() {
+        open("https://retention-csb-test.biomed.ntua.gr/builder;patientId=67");
+        sleep(4000);
+
+        $("#kt_content_container > app-builder > div:nth-child(3) > div.card-header.card-header-stretch.overflow-auto > ul > li:nth-child(1) > a").click();
+
+        $("a[style='margin-bottom: 3%;']").click();
+        $("input[id='mat-input-30']").setValue("john@gmail.com");
+        $("a[style='margin-bottom: 3%;']").click();
+        assertEquals("john@gmail.com", $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(1) > form > div:nth-of-type(3) > div:nth-of-type(3) > h5").getText());
+    }
+
+    @Test
+    public void baselineSubmitButtonWorks() {
+        open("https://retention-csb-test.biomed.ntua.gr/builder;patientId=67");
+        sleep(4000);
+
+        $("#kt_content_container > app-builder > div:nth-child(3) > div.card-header.card-header-stretch.overflow-auto > ul > li:nth-child(2) > a").click();
+
+        $("a[style='margin-bottom: 3%;']").click();
+        $("input[id='mat-input-30']").setValue("john@gmail.com");
+        $("a[style='margin-bottom: 3%;']").click();
+        assertEquals("john@gmail.com", $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(1) > form > div:nth-of-type(3) > div:nth-of-type(3) > h5").getText());
+    }
+
+    @Test
+    public void assignDevicesButtonWorks() {
+        open("https://retention-csb-test.biomed.ntua.gr/builder;patientId=67");
+        sleep(4000);
+
+        $("#kt_content_container > app-builder > div:nth-child(3) > div.card-header.card-header-stretch.overflow-auto > ul > li:nth-child(3) > a").click();
+
+        $("mat-label[style='padding-bottom: 3%;'] a[id*='toolbar']").click();
+        $("input[id='mat-input-28']").setValue("3883993938738");
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(2) > div > form > div > div:nth-of-type(2) > mat-form-field > div > div > div").click();
+        $("#kt_body > div > div:nth-child(2) > div > div > div > mat-option:nth-child(1)").sendKeys(Keys.SPACE);
+
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(2) > div > form > div > div:nth-of-type(3) > mat-form-field >div > div > div").click();
+        $("#kt_body > div > div:nth-child(2) > div > div > div > mat-option:nth-child(1)").sendKeys(Keys.SPACE);
+        $("button[class='btn btn-primary btn-color-muted']").click();
+        sleep(2000);
+        assertEquals("https://retention-csb-test.biomed.ntua.gr/builder;patientId=67", url());
+    }
+
+    @Test
+    public void baselineWorks() {
+
+        open("https://retention-csb-test.biomed.ntua.gr/builder;patientId=67");
+        $("input[id='username']").setValue("dev");
+        $("input[id='password']").setValue("qwer1234");
+        $("input[id='kc-login']").click();
+        sleep(4000);
+
+        $("#kt_content_container > app-builder > div:nth-child(3) > div.card-header.card-header-stretch.overflow-auto > ul > li:nth-child(2) > a").click();
+        $("mat-radio-button[id='mat-radio-95']").click();
     }
 }
