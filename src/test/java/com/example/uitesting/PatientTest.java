@@ -3,13 +3,18 @@ package com.example.uitesting;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
+import com.codeborne.selenide.SetValueOptions;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.support.ui.Sleeper;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Map;
 
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.*;
@@ -496,28 +501,161 @@ public class PatientTest {
     public void baselineWorks() {
 
         open("https://retention-csb-test.biomed.ntua.gr/builder;patientId=67");
+        sleep(4000);
+
+        $("#kt_content_container > app-builder > div:nth-child(3) > div.card-header.card-header-stretch.overflow-auto > ul > li:nth-child(2) > a").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(1) > div:nth-of-type(1) > section > mat-radio-group > mat-radio-button:nth-of-type(1) > label > span:nth-of-type(1) > span:nth-of-type(2)").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(1) > div:nth-of-type(2) > section > mat-radio-group > mat-radio-button:nth-of-type(1) > label > span:nth-of-type(1) > span:nth-of-type(2)").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(1) > div:nth-of-type(3) > section > mat-radio-group > mat-radio-button:nth-of-type(1) > label > span:nth-of-type(1) > span:nth-of-type(2)").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(2) > div:nth-of-type(1) > section > mat-radio-group > mat-radio-button:nth-of-type(1) > label > span:nth-of-type(1) > span:nth-of-type(2)").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(2) > div:nth-of-type(2) > section > mat-radio-group > mat-radio-button:nth-of-type(1) > label > span:nth-of-type(1) > span:nth-of-type(2)").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(2) > div:nth-of-type(3) > section > mat-radio-group > mat-radio-button:nth-of-type(1) > label > span:nth-of-type(1) > span:nth-of-type(2)").click();
+        $("input[data-placeholder='0-150']").setValue("140");
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(3) > div:nth-of-type(2) > section > mat-radio-group > mat-radio-button:nth-of-type(1) > label > span:nth-of-type(1) > span:nth-of-type(2)").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(3) > div:nth-of-type(3) > section > mat-radio-group > mat-radio-button:nth-of-type(1) > label > span:nth-of-type(1) > span:nth-of-type(2)").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(4) > div:nth-of-type(1) > section > mat-radio-group > mat-radio-button:nth-of-type(1) > label > span:nth-of-type(1) > span:nth-of-type(2)").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(4) > div:nth-of-type(2) > section > mat-radio-group > mat-radio-button:nth-of-type(1) > label > span:nth-of-type(1) > span:nth-of-type(2)").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(4) > div:nth-of-type(2) > section > mat-radio-group > mat-radio-button:nth-of-type(1) > label > span:nth-of-type(1) > span:nth-of-type(2)").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(4) > div:nth-of-type(3) > section > mat-radio-group > mat-radio-button:nth-of-type(1) > label > span:nth-of-type(1) > span:nth-of-type(2)").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(5) > div:nth-of-type(2) > section > mat-radio-group > mat-radio-button:nth-of-type(1) > label > span:nth-of-type(1) > span:nth-of-type(2)").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(6) > div:nth-of-type(1) > section > mat-radio-group > mat-radio-button:nth-of-type(1) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(6) > div:nth-of-type(1) > section > mat-radio-group > mat-radio-button:nth-of-type(2) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(5) > div:nth-of-type(1) > section > mat-radio-group > mat-radio-button:nth-of-type(2) > label > span:nth-of-type(1) > span:nth-of-type(2)").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(5) > div:nth-of-type(3) > mat-form-field > div > div:nth-of-type(1) > div > mat-select > div > div:nth-of-type(2)").click();
+        $("html > body > div:nth-of-type(3) > div:nth-of-type(2) > div > div > div > mat-option:nth-of-type(1)").sendKeys(Keys.SPACE);
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(6) > div:nth-of-type(2) > mat-form-field > div > div:nth-of-type(1) > div > mat-select > div > div:nth-of-type(2)").click();
+        $("html > body > div:nth-of-type(3) > div:nth-of-type(2) > div > div > div > mat-option:nth-of-type(1)").sendKeys(Keys.SPACE);
+
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(6) > div:nth-of-type(3) > mat-form-field > div > div:nth-of-type(1) > div > mat-select > div > div:nth-of-type(2)").click();
+        $("html > body > div:nth-of-type(3) > div:nth-of-type(2) > div > div > div > mat-option:nth-of-type(1)").sendKeys(Keys.SPACE);
+
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(7) > div:nth-of-type(2) > mat-form-field > div > div:nth-of-type(1) > div > mat-select > div > div:nth-of-type(2)").click();
+        $("html > body > div:nth-of-type(3) > div:nth-of-type(2) > div > div > div > mat-option:nth-of-type(1)").sendKeys(Keys.SPACE);
+
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(7) > div:nth-of-type(3) > mat-form-field > div > div:nth-of-type(1) > div > mat-select > div > div:nth-of-type(2)").click();
+        $("html > body > div:nth-of-type(3) > div:nth-of-type(2) > div > div > div > mat-option:nth-of-type(1)").sendKeys(Keys.SPACE);
+
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(9) > div:nth-of-type(1) > mat-form-field > div > div:nth-of-type(1) > div > mat-select > div > div:nth-of-type(2)").click();
+        $("html > body > div:nth-of-type(3) > div:nth-of-type(2) > div > div > div > mat-option:nth-of-type(1)").sendKeys(Keys.SPACE);
+
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(10) > div:nth-of-type(1) > mat-form-field > div > div:nth-of-type(1) > div > mat-select > div > div:nth-of-type(2)").click();
+        $("html > body > div:nth-of-type(3) > div:nth-of-type(2) > div > div > div > mat-option:nth-of-type(1)").sendKeys(Keys.SPACE);
+
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(11) > div:nth-of-type(2) > mat-form-field > div > div:nth-of-type(1) > div > mat-select > div > div:nth-of-type(2)").click();
+        $("html > body > div:nth-of-type(3) > div:nth-of-type(2) > div > div > div > mat-option:nth-of-type(1)").sendKeys(Keys.SPACE);
+
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(12) > div:nth-of-type(3) > mat-form-field > div > div:nth-of-type(1) > div > mat-select > div > div:nth-of-type(2)").click();
+        $("html > body > div:nth-of-type(3) > div:nth-of-type(2) > div > div > div > mat-option:nth-of-type(1)").sendKeys(Keys.SPACE);
+
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(13) > div:nth-of-type(3) > mat-form-field > div > div:nth-of-type(1) > div > mat-select > div > div:nth-of-type(2)").click();
+        $("html > body > div:nth-of-type(3) > div:nth-of-type(2) > div > div > div > mat-option:nth-of-type(1)").sendKeys(Keys.SPACE);
+
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(14) > div:nth-of-type(2) > mat-form-field > div > div:nth-of-type(1) > div > mat-select > div > div:nth-of-type(2)").click();
+        $("html > body > div:nth-of-type(3) > div:nth-of-type(2) > div > div > div > mat-option:nth-of-type(1)").sendKeys(Keys.SPACE);
+
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(15) > div:nth-of-type(2) > mat-form-field > div > div:nth-of-type(1) > div > mat-select > div > div:nth-of-type(2)").click();
+        $("html > body > div:nth-of-type(3) > div:nth-of-type(2) > div > div > div > mat-option:nth-of-type(1)").sendKeys(Keys.SPACE);
+
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(15) > div:nth-of-type(3) > mat-form-field > div > div:nth-of-type(1) > div > mat-select > div > div:nth-of-type(2)").click();
+        $("html > body > div:nth-of-type(3) > div:nth-of-type(2) > div > div > div > mat-option:nth-of-type(1)").sendKeys(Keys.SPACE);
+
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(16) > div:nth-of-type(1) > mat-form-field > div > div:nth-of-type(1) > div > mat-select > div > div:nth-of-type(2)").click();
+        $("html > body > div:nth-of-type(3) > div:nth-of-type(2) > div > div > div > mat-option:nth-of-type(1)").sendKeys(Keys.SPACE);
+
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(19) > div > mat-form-field > div > div:nth-of-type(1) > div > mat-select > div > div:nth-of-type(2)").click();
+        $("html > body > div:nth-of-type(3) > div:nth-of-type(2) > div > div > div > mat-option:nth-of-type(1)").sendKeys(Keys.SPACE);
+
+
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(7) > div:nth-of-type(1) > mat-form-field > div > div:nth-of-type(1) > div > input").setValue(SetValueOptions.withDate(LocalDate.of(2000, 07, 02)));
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(8) > div:nth-of-type(2) > mat-form-field > div > div:nth-of-type(1) > div > input").setValue(SetValueOptions.withDate(LocalDate.of(2000, 07, 02)));
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(12) > div:nth-of-type(2) > mat-form-field > div > div:nth-of-type(1) > div > input").setValue(SetValueOptions.withDate(LocalDate.of(2000, 07, 02)));
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(15) > div:nth-of-type(1) > mat-form-field > div > div:nth-of-type(1) > div > input").setValue(SetValueOptions.withDate(LocalDate.of(2000, 07, 02)));
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(17) > div:nth-of-type(1) > mat-form-field > div > div:nth-of-type(1) > div > input").setValue(SetValueOptions.withDate(LocalDate.of(2000, 07, 02)));
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(16) > div:nth-of-type(2) > mat-form-field > div > div:nth-of-type(1) > div > input").setValue(SetValueOptions.withDate(LocalDate.of(2000, 07, 02)));
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(17) > div:nth-of-type(3) > mat-form-field > div > div:nth-of-type(1) > div > input").setValue(SetValueOptions.withDate(LocalDate.of(2000, 07, 02)));
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(8) > div:nth-of-type(1) > mat-form-field > div > div:nth-of-type(1) > div > input").setValue("150");
+
+
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(8) > div:nth-of-type(3) > section > mat-radio-group > mat-radio-button:nth-of-type(2) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(9) > div:nth-of-type(2) > section > mat-radio-group > mat-radio-button:nth-of-type(2) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(9) > div:nth-of-type(3) > section > mat-radio-group > mat-radio-button:nth-of-type(2) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(10) > div:nth-of-type(2) > section > mat-radio-group > mat-radio-button:nth-of-type(2) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(18) > div:nth-of-type(1) > section > mat-radio-group > mat-radio-button:nth-of-type(2) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(18) > div:nth-of-type(2) > section > mat-radio-group > mat-radio-button:nth-of-type(2) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(18) > div:nth-of-type(3) > section > mat-radio-group > mat-radio-button:nth-of-type(2) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(17) > div:nth-of-type(2) > section > mat-radio-group > mat-radio-button:nth-of-type(2) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(16) > div:nth-of-type(3) > section > mat-radio-group > mat-radio-button:nth-of-type(2) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(14) > div:nth-of-type(3) > section > mat-radio-group > mat-radio-button:nth-of-type(2) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
+        executeJavaScript("window.scrollTo(document.body.scrollHeight, 300)");
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(14) > div:nth-of-type(1) > section > mat-radio-group > mat-radio-button:nth-of-type(2) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(13) > div:nth-of-type(2) > section > mat-radio-group > mat-radio-button:nth-of-type(2) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(13) > div:nth-of-type(1) > section > mat-radio-group > mat-radio-button:nth-of-type(2) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(13) > div:nth-of-type(1) > section > mat-radio-group > mat-radio-button:nth-of-type(2) > label > span:nth-of-type(1) > span:nth-of-type(2)").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(12) > div:nth-of-type(1) > section > mat-radio-group > mat-radio-button:nth-of-type(2) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(11) > div:nth-of-type(3) > section > mat-radio-group > mat-radio-button:nth-of-type(2) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(11) > div:nth-of-type(1) > section > mat-radio-group > mat-radio-button:nth-of-type(2) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(10) > div:nth-of-type(3) > section > mat-radio-group > mat-radio-button:nth-of-type(2) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
+        $("button[class='btn btn-sm cursor-pointer btn-primary']").click();
+        driver().switchTo().alert().accept();
+        sleep(2000);
+    }
+
+    @Test
+    public void visitsTrueWorks() {
+        ArrayList<String> errors = new ArrayList<>();
+        open("https://retention-csb-test.biomed.ntua.gr/builder;patientId=67");
+        sleep(4000);
+        $("button[id='monitoring']").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(1) > ul > li:nth-of-type(2) > a").click();
+
+
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(6) > div > app-vn > div > div > mat-form-field > div > div:nth-of-type(1) > div > input").setValue("Live");
+
+        ElementsCollection collection = $$("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(6) > div > app-vn > div > div > div > table > tbody tr");
+        for (SelenideElement element : collection) {
+            String text = element.getText();
+            if (!text.split(" ")[3].equals("Live")) {
+                errors.add("Row invalid!");
+            }
+        }
+
+        assertEquals(new ArrayList<String>(), errors);
+    }
+
+    @Test
+    public void visitsFalseWorks() {
+        open("https://retention-csb-test.biomed.ntua.gr/builder;patientId=67");
+        sleep(4000);
+        $("button[id='monitoring']").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(1) > ul > li:nth-of-type(2) > a").click();
+
+        String dummyText = "fjdkajfkadk";
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(6) > div > app-vn > div > div > mat-form-field > div > div:nth-of-type(1) > div > input").setValue(dummyText);
+
+        ElementsCollection collection = $$("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(6) > div > app-vn > div > div > div > table > tbody tr");
+
+
+        assertEquals("No data matching the filter \"" + dummyText + "\"", collection.get(0).getText());
+    }
+
+    @Test
+    public void visitsEditWorks() {
+        open("https://retention-csb-test.biomed.ntua.gr/builder;patientId=67");
         $("input[id='username']").setValue("dev");
         $("input[id='password']").setValue("qwer1234");
         $("input[id='kc-login']").click();
         sleep(4000);
+        $("button[id='monitoring']").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(1) > ul > li:nth-of-type(2) > a").click();
 
-        $("#kt_content_container > app-builder > div:nth-child(3) > div.card-header.card-header-stretch.overflow-auto > ul > li:nth-child(2) > a").click();
-        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(1) > div:nth-of-type(1) > section > mat-radio-group > mat-radio-button:nth-of-type(1) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
-        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(1) > div:nth-of-type(2) > section > mat-radio-group > mat-radio-button:nth-of-type(1) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
-        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(1) > div:nth-of-type(3) > section > mat-radio-group > mat-radio-button:nth-of-type(1) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
-        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(2) > div:nth-of-type(1) > section > mat-radio-group > mat-radio-button:nth-of-type(1) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
-        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(2) > div:nth-of-type(2) > section > mat-radio-group > mat-radio-button:nth-of-type(1) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
-        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(2) > div:nth-of-type(3) > section > mat-radio-group > mat-radio-button:nth-of-type(1) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
-        $("input[data-placeholder='0-150']").setValue("140");
-        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(3) > div:nth-of-type(2) > section > mat-radio-group > mat-radio-button:nth-of-type(1) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
-        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(3) > div:nth-of-type(3) > section > mat-radio-group > mat-radio-button:nth-of-type(1) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
-        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(4) > div:nth-of-type(1) > section > mat-radio-group > mat-radio-button:nth-of-type(1) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
-        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(4) > div:nth-of-type(2) > section > mat-radio-group > mat-radio-button:nth-of-type(1) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
-        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(4) > div:nth-of-type(2) > section > mat-radio-group > mat-radio-button:nth-of-type(1) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
-        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(4) > div:nth-of-type(3) > section > mat-radio-group > mat-radio-button:nth-of-type(1) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
-        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(5) > div:nth-of-type(2) > section > mat-radio-group > mat-radio-button:nth-of-type(1) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
-        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(6) > div:nth-of-type(1) > section > mat-radio-group > mat-radio-button:nth-of-type(1) > label > span:nth-of-type(1) > span:nth-of-type(1)").click();
-        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(2) > app-baseline > mat-horizontal-stepper > div > div:nth-of-type(2) > div > form > div:nth-of-type(5) > div:nth-of-type(3) > mat-form-field > div > div:nth-of-type(1) > div").click();
-        $("html > body > div:nth-of-type(3) > div:nth-of-type(2) > div > div > div > mat-option:nth-of-type(1)").sendKeys(Keys.SPACE);
+        ElementsCollection collection = $$("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(6) > div > app-vn > div > div > div > table > tbody tr");
+        for (SelenideElement element : collection)
+        {
+            String name = element.getTagName();
+            System.out.println(name);
+            ElementsCollection tdCollection = $$(name + " td");
+            System.out.println(tdCollection.toString());
+        }
     }
+
 }
