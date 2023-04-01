@@ -692,9 +692,6 @@ public class PatientTest {
     public void medicationTrueWorks() {
         ArrayList<String> errors = new ArrayList<>();
         open("https://retention-csb-test.biomed.ntua.gr/builder;patientId=67");
-        $("input[id='username']").setValue("dev");
-        $("input[id='password']").setValue("qwer1234");
-        $("input[id='kc-login']").click();
         sleep(4000);
         $("button[id='monitoring']").click();
         $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(1) > ul > li:nth-of-type(3) > a").click();
@@ -717,9 +714,6 @@ public class PatientTest {
     @Test
     public void medicationFalseWorks() {
         open("https://retention-csb-test.biomed.ntua.gr/builder;patientId=67");
-        $("input[id='username']").setValue("dev");
-        $("input[id='password']").setValue("qwer1234");
-        $("input[id='kc-login']").click();
         sleep(4000);
         $("button[id='monitoring']").click();
         $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(1) > ul > li:nth-of-type(3) > a").click();
@@ -737,9 +731,6 @@ public class PatientTest {
     public void medicationEditWorks() {
         ArrayList<String> errors = new ArrayList<>();
         open("https://retention-csb-test.biomed.ntua.gr/builder;patientId=67");
-        $("input[id='username']").setValue("dev");
-        $("input[id='password']").setValue("qwer1234");
-        $("input[id='kc-login']").click();
         open("https://retention-csb-test.biomed.ntua.gr/builder;patientId=67");
         sleep(4000);
         $("button[id='monitoring']").click();
@@ -767,20 +758,20 @@ public class PatientTest {
     @Test
     public void addMedicationWorks() {
         open("https://retention-csb-test.biomed.ntua.gr/builder;patientId=67");
-        $("input[id='username']").setValue("dev");
-        $("input[id='password']").setValue("qwer1234");
-        $("input[id='kc-login']").click();
         sleep(4000);
         $("button[id='monitoring']").click();
         $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(1) > ul > li:nth-of-type(3) > a").click();
 
-        $("#kt_content_container > app-builder > div:nth-child(3) > div.card-body > div > div.tab-pane.active > div > app-vn > mat-toolbar > button").click();
+        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(23) > app-medication-new > mat-toolbar > button").click();
         ElementsCollection collection = $$("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(6) > div > app-vn > div > div > div > table > tbody tr");
         int sizeBefore = collection.size();
-        $("html > body > div:nth-of-type(3) > div:nth-of-type(2) > div > mat-dialog-container > app-dialog-vn > div:nth-of-type(1) > form > mat-form-field:nth-of-type(1) > div > div:nth-of-type(1) > div:nth-of-type(3) > input").setValue(SetValueOptions.withDate(LocalDate.of(2000, 07, 02)));
-        $("html > body > div:nth-of-type(3) > div:nth-of-type(2) > div > mat-dialog-container > app-dialog-vn > div:nth-of-type(1) > form > mat-form-field:nth-of-type(2) > div > div:nth-of-type(1) > div:nth-of-type(3) > mat-select > div > div:nth-of-type(1) > span").click();
-        $("html > body > div:nth-of-type(3) > div:nth-of-type(4) > div > div > div > mat-option:nth-of-type(1)").click();
-        $("html > body > div:nth-of-type(3) > div:nth-of-type(2) > div > mat-dialog-container > app-dialog-vn > div:nth-of-type(2) > button:nth-of-type(2)").click();
+        $("html > body > div:nth-of-type(3) > div:nth-of-type(2) > div > mat-dialog-container > app-dialog > div:nth-of-type(1) > form > mat-form-field:nth-of-type(1) > div > div:nth-of-type(1) > div:nth-of-type(3) > mat-select > div > div:nth-of-type(1)").click();
+        $("html > body > div:nth-of-type(3) > div:nth-of-type(4) > div > div > div > mat-option:nth-of-type(1)").sendKeys(Keys.SPACE);
+        $("html > body > div:nth-of-type(3) > div:nth-of-type(2) > div > mat-dialog-container > app-dialog > div:nth-of-type(1) > form > mat-form-field:nth-of-type(2) > div > div:nth-of-type(1) > div:nth-of-type(3) > mat-select > div > div:nth-of-type(1) > span").setValue("Something");
+        $("html > body > div:nth-of-type(3) > div:nth-of-type(2) > div > mat-dialog-container > app-dialog > div:nth-of-type(1) > form > mat-form-field:nth-of-type(3) > div > div:nth-of-type(1) > div:nth-of-type(3) > input").setValue("130");
+        $("html > body > div:nth-of-type(3) > div:nth-of-type(2) > div > mat-dialog-container > app-dialog > div:nth-of-type(1) > form > mat-form-field:nth-of-type(5) > div > div:nth-of-type(1) > div:nth-of-type(3) > input").setValue(SetValueOptions.withDate(LocalDate.of(2024, 3, 2)));
+        $("html > body > div:nth-of-type(3) > div:nth-of-type(2) > div > mat-dialog-container > app-dialog > div:nth-of-type(1) > form > mat-form-field:nth-of-type(6) > div > div:nth-of-type(1) > div:nth-of-type(3)").click();
+        $("html > body > div:nth-of-type(3) > div:nth-of-type(4) > div > div > div > mat-option:nth-of-type(1)").sendKeys(Keys.SPACE);
         sleep(2000);
         int sizeAfter = collection.size();
         assertEquals(sizeBefore+1, sizeAfter);
