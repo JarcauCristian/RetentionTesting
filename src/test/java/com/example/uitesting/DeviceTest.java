@@ -22,9 +22,6 @@ public class DeviceTest {
     @Test
     public void createDeviceWorks() {
         open("https://retention-csb-test.biomed.ntua.gr/notifications");
-        $("input[id='username']").setValue("dev");
-        $("input[id='password']").setValue("qwer1234");
-        $("input[id='kc-login']").click();
         sleep(1000);
         $("#kt_toolbar_primary_button").click();
         sleep(1000);

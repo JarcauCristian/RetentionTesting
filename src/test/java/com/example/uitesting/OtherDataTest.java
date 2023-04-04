@@ -32,6 +32,9 @@ public class OtherDataTest {
         $("input[id='username']").setValue("dev");
         $("input[id='password']").setValue("qwer1234");
         $("input[id='kc-login']").click();
+        $("input[id='username']").setValue("dev");
+        $("input[id='password']").setValue("qwer1234");
+        $("input[id='kc-login']").click();
         sleep(4000);
         $("button[id='monitoring']").click();
         $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(1) > ul > li:nth-of-type(15) > a").click();

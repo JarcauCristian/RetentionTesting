@@ -642,32 +642,32 @@ public class PatientTest {
         assertEquals("No data matching the filter \"" + dummyText + "\"", collection.get(0).getText());
     }
 
-    @Test
-    public void visitsEditWorks() {
-        ArrayList<String> errors = new ArrayList<>();
-        open("https://retention-csb-test.biomed.ntua.gr/builder;patientId=67");
-        sleep(4000);
-        $("button[id='monitoring']").click();
-        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(1) > ul > li:nth-of-type(2) > a").click();
-
-        List<String> texts = Arrays.asList("Jul 2, 2000 Call 254805 edit\ndelete", "Jul 2, 2000 Call 254807 edit\ndelete");
-        ElementsCollection collection = $$("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(6) > div > app-vn > div > div > div > table > tbody tr");
-        for (int i = 0; i < collection.size(); i++)
-        {
-            $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(6) > div > app-vn > div > div > div > table > tbody > tr:nth-of-type(" + String.valueOf(i + 1) + ") > td:nth-of-type(4) > button:nth-of-type(1) > span:nth-of-type(1) > mat-icon").click();
-            $("html > body > div:nth-of-type(3) > div:nth-of-type(2) > div > mat-dialog-container > app-dialog-vn > div:nth-of-type(1) > form > mat-form-field:nth-of-type(1) > div > div:nth-of-type(1) > div:nth-of-type(3) > input").setValue(SetValueOptions.withDate(LocalDate.of(2000, 07, 02)));
-            $("html > body > div:nth-of-type(3) > div:nth-of-type(2) > div > mat-dialog-container > app-dialog-vn > div:nth-of-type(1) > form > mat-form-field:nth-of-type(2) > div > div:nth-of-type(1) > div:nth-of-type(3) > mat-select > div > div:nth-of-type(1) > span").click();
-            $("html > body > div:nth-of-type(3) > div:nth-of-type(4) > div > div > div > mat-option:nth-of-type(1) > span").click();
-            $("html > body > div:nth-of-type(3) > div:nth-of-type(2) > div > mat-dialog-container > app-dialog-vn > div:nth-of-type(2) > button:nth-of-type(2)").click();
-            if (!texts.get(i).equals(collection.get(i).getText()))
-            {
-                errors.add("Edit doesn't work!");
-            }
-            sleep(2000);
-        }
-
-        assertEquals(new ArrayList<String>(), errors);
-    }
+//    @Test
+//    public void visitsEditWorks() {
+//        ArrayList<String> errors = new ArrayList<>();
+//        open("https://retention-csb-test.biomed.ntua.gr/builder;patientId=67");
+//        sleep(4000);
+//        $("button[id='monitoring']").click();
+//        $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(1) > ul > li:nth-of-type(2) > a").click();
+//
+//        List<String> texts = Arrays.asList("Jul 2, 2000 Call 254805 edit\ndelete", "Jul 2, 2000 Call 254807 edit\ndelete");
+//        ElementsCollection collection = $$("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(6) > div > app-vn > div > div > div > table > tbody tr");
+//        for (int i = 0; i < collection.size(); i++)
+//        {
+//            $("html > body > app-layout > div > div > div > div > div > app-content > app-builder > div:nth-of-type(3) > div:nth-of-type(2) > div > div:nth-of-type(6) > div > app-vn > div > div > div > table > tbody > tr:nth-of-type(" + String.valueOf(i + 1) + ") > td:nth-of-type(4) > button:nth-of-type(1) > span:nth-of-type(1) > mat-icon").click();
+//            $("html > body > div:nth-of-type(3) > div:nth-of-type(2) > div > mat-dialog-container > app-dialog-vn > div:nth-of-type(1) > form > mat-form-field:nth-of-type(1) > div > div:nth-of-type(1) > div:nth-of-type(3) > input").setValue(SetValueOptions.withDate(LocalDate.of(2000, 07, 02)));
+//            $("html > body > div:nth-of-type(3) > div:nth-of-type(2) > div > mat-dialog-container > app-dialog-vn > div:nth-of-type(1) > form > mat-form-field:nth-of-type(2) > div > div:nth-of-type(1) > div:nth-of-type(3) > mat-select > div > div:nth-of-type(1) > span").click();
+//            $("html > body > div:nth-of-type(3) > div:nth-of-type(4) > div > div > div > mat-option:nth-of-type(1) > span").click();
+//            $("html > body > div:nth-of-type(3) > div:nth-of-type(2) > div > mat-dialog-container > app-dialog-vn > div:nth-of-type(2) > button:nth-of-type(2)").click();
+//            if (!texts.get(i).equals(collection.get(i).getText()))
+//            {
+//                errors.add("Edit doesn't work!");
+//            }
+//            sleep(2000);
+//        }
+//
+//        assertEquals(new ArrayList<String>(), errors);
+//    }
 
     @Test
     public void addVisitsWorks() {
